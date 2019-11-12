@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "electron": "^3.0.2",
-    "electron-builder": "^20.28.4"
+    "electron-builder": "^20.41.0"
   },
   "dependencies": {
     "electron-log": "^1.3.0",
@@ -17,11 +17,13 @@
   },
   "build": {
     "appId": "com.github.Blookhaven.electronupdaterexample",
-    "publish": [{
-      "provider": "github",
-      "owner": "Blookhaven",
-      "repo": "electron-updater-example"
-    }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Blookhaven",
+        "repo": "electron-updater-example"
+      }
+    ],
     "mac": {
       "category": "public.app-category.productivity",
       "target": [
