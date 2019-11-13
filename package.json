@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.7.5",
+  "version": "0.7.4",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -35,13 +35,13 @@
       ]
     },
     "win": {
-      "target": "NSIS",
-      "nsis": {
-        "oneClick": false,
-        "perMachine": true,
-        "allowElevation": true,
-        "allowToChangeInstallationDirectory": true
-      }
+      "target": "nsis"
     }
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true
   }
 }
