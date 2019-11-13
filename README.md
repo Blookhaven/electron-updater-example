@@ -11,6 +11,8 @@ If you can't use GitHub, you can use other providers:
 
     Install Xcode (from the App Store), then follow [these instructions](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html#//apple_ref/doc/uid/TP40012582-CH31-SW6) to make sure you have a "Mac Developer" certificate.  If you'd like to export the certificate (for automated building, for instance) [you can](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html#//apple_ref/doc/uid/TP40012582-CH31-SW7).  You would then follow [these instructions](https://www.electron.build/code-signing).
 
+    * Launch Xcode, open preferences, select accounts then click Manage Certificates. Click the plus button to add certificates - Mac Developer and IOS Developer seem to work. Others do not have permission without applying for a dev id.
+
 2. Adjust `package.json` if needed.
 
     By default, `electron-updater` will try to detect the GitHub settings (such as the repo name and owner) from reading the `.git/config` or from reading other attributes within `package.json`.  If the auto-detected settings are not what you want, configure the [`publish`](https://github.com/electron-userland/electron-builder/wiki/Publishing-Artifacts#PublishConfiguration) property as follows:
@@ -41,6 +43,8 @@ If you can't use GitHub, you can use other providers:
 
         export GH_TOKEN="<YOUR_TOKEN_HERE>"
 
+    * After entering this command it appears that nothing has happened...
+
     On Windows, run in powershell:
 
         [Environment]::SetEnvironmentVariable("GH_TOKEN","<YOUR_TOKEN_HERE>","User")
@@ -54,6 +58,8 @@ If you can't use GitHub, you can use other providers:
    or
 
         npm run publish
+
+   * First few attempts after cloning this repo - the process got as far as 'signing' then threw an error saying the command failed / was rejected. Changing the version of electron-builder in package.json to ^20.41.0 fixed this.
 
    If you want to publish for more platforms, edit the `publish` script in `package.json`.  For instance, to build for Windows and macOS:
 

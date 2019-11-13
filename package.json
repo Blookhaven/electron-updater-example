@@ -5,7 +5,7 @@
   "description": "electron-updater example project",
   "author": "Matt Haggard",
   "scripts": {
-    "publish": "build -p always",
+    "publish": "build --mac --win -p always",
     "start": "electron ."
   },
   "devDependencies": {
@@ -31,6 +31,15 @@
         "zip",
         "dmg"
       ]
+    },
+    "win": {
+      "target": "NSIS",
+      "nsis": {
+        "oneClick": false,
+        "perMachine": true,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true
+      }
     }
   }
 }
