@@ -32,9 +32,10 @@ ipcRenderer.on('message', function(event, text) {
 // 	localStorage.setItem('testinput',e.target.value)
 // })
 
-const store = ()=>{
-	console.log(this)
-	localStorage.setItem('testinput',this.value)
+const store = (e)=>{
+	console.log(e.target.value)
+	// localStorage.setItem('testinput',this.value)
+	localStorage.setItem('testinput',e.target.value)
 }
 
 if(localStorage['testinput']){
