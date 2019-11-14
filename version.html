@@ -11,6 +11,7 @@
 </head>
 <body>
   Current version: <span id="version">vX.Y.Z</span>
+  <input type="text" name="testinput">
   <div id="messages"></div>
 <script>
 // Display the current version
@@ -20,11 +21,29 @@ document.getElementById('version').innerText = version;
 // Listen for messages
 const {ipcRenderer} = require('electron');
 ipcRenderer.on('message', function(event, text) {
-  var container = document.getElementById('messages');
-  var message = document.createElement('div');
+  let container = document.getElementById('messages');
+  let message = document.createElement('div');
   message.innerHTML = text;
   container.appendChild(message);
 })
+
+
+let testinput = document.getElementsByName('testinput')
+testinput.on('change',(e)=>{
+	localStorage.setItem('testinput',e.target.value)
+})
+
+if(localStorage['testinput']){
+	let container = document.getElementById('messages');
+	let message = document.createElement('div');
+	message.innerHTML = localStorage['testinput'];
+	container.appendChild(message);
+}else{
+	let container = document.getElementById('messages');
+	let message = document.createElement('div');
+	message.innerHTML = 'nothing in localStorage';
+	container.appendChild(message);
+}
 </script>
 </body>
 </html>
