@@ -11,7 +11,7 @@
 </head>
 <body>
   Current version: <span id="version">vX.Y.Z</span>
-  <input type="text" name="testinput" onchange="store">
+  <input type="text" name="testinput" onchange="store()">
   <div id="messages"></div>
 <script>
 // Display the current version
@@ -32,10 +32,11 @@ ipcRenderer.on('message', function(event, text) {
 // 	localStorage.setItem('testinput',e.target.value)
 // })
 
-const store = (e)=>{
-	console.log(e.target.value)
-	// localStorage.setItem('testinput',this.value)
-	localStorage.setItem('testinput',e.target.value)
+// const store = (e)=>{
+const store = ()=>{
+	console.log(this)
+	localStorage.setItem('testinput',this.value)
+	// localStorage.setItem('testinput',e.target.value)
 }
 
 if(localStorage['testinput']){
