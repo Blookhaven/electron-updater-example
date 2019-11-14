@@ -28,8 +28,7 @@ ipcRenderer.on('message', function(event, text) {
 })
 
 
-let testinput = document.getElementsByName('testinput')
-testinput.on('change',(e)=>{
+document.getElementsByName('testinput').on('change',(e)=>{
 	localStorage.setItem('testinput',e.target.value)
 })
 
