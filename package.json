@@ -1,9 +1,10 @@
 {
   "name": "electron-updater-example",
-  "version": "0.7.20",
+  "version": "0.7.21",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
+  "license": "MIT",
   "repository": "https://github.com/blookhaven/electron-updater-example",
   "scripts": {
     "publish": "build --mac --win -p always",
@@ -12,7 +13,7 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^7.0.0",
+    "electron": "^7.1.1",
     "electron-builder": "^20.41.0"
   },
   "dependencies": {
