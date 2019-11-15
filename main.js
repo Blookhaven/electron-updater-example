@@ -53,6 +53,7 @@ if (process.platform === 'darwin') {
 // that updates are working.
 //-------------------------------------------------------------------
 let win;
+let quit = false;
 
 function sendStatusToWindow(text) {
   log.info(text);
@@ -70,8 +71,26 @@ function createDefaultWindow() {
     win = null;
   });
   win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
+  win.on('close',(event)=>{ //   <---- Catch close event
+
+    if(quit === false){
+      event.preventDefault()
+      win.webContents.send('quit')
+    }else{
+      app.quit()
+    }
+  });
   return win;
 }
+
+ipcMain.on('quit',(event,data)=>{
+  quit = data;console.log(data)
+  if(quit === true){
+    console.log('170')
+    app.quit()
+  }
+})
+
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })

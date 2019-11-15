@@ -27,6 +27,11 @@ ipcRenderer.on('message', function(event, text) {
   container.appendChild(message);
 })
 
+ipcRenderer.on('quit',(event)=>{
+	/*meet some conditions?*/
+	ipcRenderer.send('quit',confirm('Quit?'));
+});
+
 
 // document.getElementsByName('testinput').on('change',(e)=>{
 // 	localStorage.setItem('testinput',e.target.value)
