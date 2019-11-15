@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.7.24",
+  "version": "0.7.25",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -13,7 +13,7 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^6.0.0",
+    "electron": "^5.0.0",
     "electron-builder": "^20.41.0"
   },
   "dependencies": {
